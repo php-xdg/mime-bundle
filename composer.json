@@ -1,0 +1,39 @@
+{
+  "name": "ju1ius/xdg-mime-bundle",
+  "type": "symfony-bundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "ju1ius",
+      "email": "jules.bernable@gmail.com"
+    }
+  ],
+  "keywords": ["mime", "mime-type", "xdg", "freedesktop", "guesser"],
+  "config": {
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "ju1ius\\XdgMimeBundle\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ju1ius\\XdgMimeBundle\\Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "php": ">=8.1",
+    "ju1ius/xdg-mime": "^0.1",
+    "symfony/config": "^6.1",
+    "symfony/dependency-injection": "^6.1",
+    "symfony/http-kernel": "^6.1"
+  },
+  "require-dev": {
+    "symfony/mime": "^6.1",
+    "symfony/stopwatch": "^6.1"
+  },
+  "suggest": {
+    "symfony/mime": "Allows using the xdg-mime database with symfony/mime type guesser system."
+  }
+}
