@@ -2,13 +2,13 @@
 
 namespace ju1ius\XdgMimeBundle\Mime;
 
-use ju1ius\XdgMime\XdgMimeDatabase;
+use ju1ius\XdgMime\MimeDatabaseInterface;
 use Symfony\Component\Mime\MimeTypeGuesserInterface;
 
 final class XdgMimeTypeGuesser implements MimeTypeGuesserInterface
 {
     public function __construct(
-        private readonly XdgMimeDatabase $mimeDatabase,
+        private readonly MimeDatabaseInterface $mimeDatabase,
     ) {
     }
 
