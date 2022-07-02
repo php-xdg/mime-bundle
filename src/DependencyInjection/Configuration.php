@@ -12,6 +12,12 @@ final class Configuration implements ConfigurationInterface
         $tree = new TreeBuilder('ju1ius_xdg_mime');
         $tree->getRootNode()
             ->children()
+                ->scalarNode('cache_prefix')
+                    ->info('Cache prefix.')
+                    ->cannotBeEmpty()
+                    ->defaultValue('xdg-mime')
+                    ->treatNullLike('xdg-mime')
+                ->end()
                 ->arrayNode('custom_database')
                     ->info('Use a custom XDG mime database instead of the built-in default.')
                     ->canBeEnabled()

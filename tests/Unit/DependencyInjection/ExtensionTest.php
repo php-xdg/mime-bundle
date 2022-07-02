@@ -1,7 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\XdgMimeBundle\Tests\DependencyInjection;
+namespace ju1ius\XdgMimeBundle\Tests\Unit\DependencyInjection;
 
+use ju1ius\XdgMime\MimeDatabaseInterface;
 use ju1ius\XdgMime\XdgMimeDatabase;
 use ju1ius\XdgMimeBundle\Cache\XdgMimeDatabaseCacheWarmer;
 use ju1ius\XdgMimeBundle\DependencyInjection\Configuration;
@@ -66,7 +67,7 @@ final class ExtensionTest extends AbstractExtensionTestCase
     {
         $id = 'ju1ius_xdg_mime.database';
         $this->assertContainerBuilderHasService($id, XdgMimeDatabase::class);
-        $this->assertContainerBuilderHasAlias(XdgMimeDatabase::class, $id);
+        $this->assertContainerBuilderHasAlias(MimeDatabaseInterface::class, $id);
         foreach ($arguments as $index => $value) {
             $this->assertContainerBuilderHasServiceDefinitionWithArgument($id, $index, $value);
         }
@@ -76,7 +77,6 @@ final class ExtensionTest extends AbstractExtensionTestCase
     {
         $id = 'ju1ius_xdg_mime.guesser';
         $this->assertContainerBuilderHasService($id, XdgMimeTypeGuesser::class);
-        $this->assertContainerBuilderHasAlias(XdgMimeTypeGuesser::class, $id);
         $this->assertContainerBuilderHasServiceDefinitionWithTag($id, 'mime.mime_type_guesser');
     }
 

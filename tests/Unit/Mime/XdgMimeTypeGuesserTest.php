@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\XdgMimeBundle\Tests\Mime;
+namespace ju1ius\XdgMimeBundle\Tests\Unit\Mime;
 
 use ju1ius\XdgMime\MimeDatabaseInterface;
 use ju1ius\XdgMime\MimeType;

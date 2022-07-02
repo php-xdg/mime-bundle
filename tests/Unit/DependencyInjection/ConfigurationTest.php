@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\XdgMimeBundle\Tests\DependencyInjection;
+namespace ju1ius\XdgMimeBundle\Tests\Unit\DependencyInjection;
 
 use ju1ius\XdgMimeBundle\DependencyInjection\Configuration;
 use Matthias\SymfonyConfigTest\PhpUnit\ConfigurationTestCaseTrait;

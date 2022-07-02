@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema
+  xmlns="urn:ju1ius:xdg-mime-bundle:dic"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="urn:ju1ius:xdg-mime-bundle:dic"
+  elementFormDefault="qualified"
+>
+
+  <xs:element name="config" type="config" />
+
+  <xs:complexType name="config">
+    <xs:sequence>
+      <xs:element name="custom-database" type="customDatabase" minOccurs="0" maxOccurs="1" />
+    </xs:sequence>
+    <xs:attribute name="cache-prefix" default="xdg-mime" />
+  </xs:complexType>
+
+  <xs:complexType name="customDatabase">
+    <xs:sequence>
+      <xs:element name="path" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:attribute name="use-xdg-directories" type="xs:boolean" />
+  </xs:complexType>
+
+</xs:schema>

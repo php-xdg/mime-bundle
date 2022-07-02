@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\XdgMimeBundle\Tests\Cache;
+namespace ju1ius\XdgMimeBundle\Tests\Unit\Cache;
 
 use ju1ius\XdgMime\MimeDatabaseGeneratorInterface;
 use ju1ius\XdgMime\XdgMimeDatabase;
@@ -12,18 +12,13 @@ final class XdgMimeDatabaseCacheWarmerTest extends TestCase
 {
     public function testItIsNotOptional(): void
     {
-        $warmer = new XdgMimeDatabaseCacheWarmer();
+        $warmer = new XdgMimeDatabaseCacheWarmer(
+            $this->createStub(MimeDatabaseGeneratorInterface::class),
+        );
         Assert::assertFalse($warmer->isOptional());
     }
 
-    public function testWarmUpDefault(): void
-    {
-        $warmer = new XdgMimeDatabaseCacheWarmer();
-        $result = $warmer->warmUp('foo');
-        Assert::assertContains(XdgMimeDatabase::class, $result);
-    }
-
-    public function testWarmUpCustom(): void
+    public function testWarmUp(): void
     {
         $warmer = new XdgMimeDatabaseCacheWarmer(
             $this->createStub(MimeDatabaseGeneratorInterface::class),

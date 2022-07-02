@@ -1,0 +1,5 @@
+ju1ius_xdg_mime:
+  custom_database:
+    use_xdg_directories: false
+    paths:
+      - "%kernel.project_dir%/fixtures/mime-info/empty.xml"

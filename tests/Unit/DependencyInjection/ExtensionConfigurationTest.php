@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\XdgMimeBundle\Tests\DependencyInjection;
+namespace ju1ius\XdgMimeBundle\Tests\Unit\DependencyInjection;
 
 use ju1ius\XdgMimeBundle\DependencyInjection\Configuration;
 use ju1ius\XdgMimeBundle\DependencyInjection\Ju1iusXdgMimeExtension;
@@ -23,6 +23,7 @@ final class ExtensionConfigurationTest extends AbstractExtensionConfigurationTes
     public function testDefaultConfig(): void
     {
         $expected = [
+            'cache_prefix' => 'xdg-mime',
             'custom_database' => [
                 'enabled' => false,
                 'use_xdg_directories' => true,
@@ -36,6 +37,7 @@ final class ExtensionConfigurationTest extends AbstractExtensionConfigurationTes
     public function testDefaultCustom(): void
     {
         $expected = [
+            'cache_prefix' => 'xdg-mime',
             'custom_database' => [
                 'enabled' => true,
                 'use_xdg_directories' => true,
@@ -49,6 +51,7 @@ final class ExtensionConfigurationTest extends AbstractExtensionConfigurationTes
     public function testCustomPaths(): void
     {
         $expected = [
+            'cache_prefix' => 'xdg-mime',
             'custom_database' => [
                 'enabled' => true,
                 'use_xdg_directories' => false,

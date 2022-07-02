@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\XdgMimeBundle\Tests;
+namespace ju1ius\XdgMimeBundle\Tests\Unit;
 
 use ju1ius\XdgMimeBundle\DependencyInjection\Ju1iusXdgMimeExtension;
 use ju1ius\XdgMimeBundle\Ju1iusXdgMimeBundle;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
 
-final class ju1iusXdgMimeBundleTest extends TestCase
+final class Ju1iusXdgMimeBundleTest extends TestCase
 {
     public function testGetName(): void
     {
@@ -18,7 +18,7 @@ final class ju1iusXdgMimeBundleTest extends TestCase
     public function testGetPath(): void
     {
         $bundle = new Ju1iusXdgMimeBundle();
-        Assert::assertSame(dirname(__DIR__), $bundle->getPath());
+        Assert::assertSame(dirname(__DIR__, 2), $bundle->getPath());
     }
 
     public function testGetNamespace(): void

@@ -19,7 +19,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "ju1ius\\XdgMimeBundle\\Tests\\": "tests/"
+      "ju1ius\\XdgMimeBundle\\Tests\\": "tests"
     }
   },
   "require": {
@@ -27,11 +27,13 @@
     "ju1ius/xdg-mime": "^0.1.1",
     "symfony/config": "^6.1",
     "symfony/dependency-injection": "^6.1",
+    "symfony/filesystem": "^6.1",
     "symfony/http-kernel": "^6.1"
   },
   "require-dev": {
     "matthiasnoback/symfony-config-test": "^4.3",
     "matthiasnoback/symfony-dependency-injection-test": "^4.3",
+    "nyholm/symfony-bundle-test": "^2.0",
     "symfony/mime": "^6.1",
     "symfony/stopwatch": "^6.1"
   },
