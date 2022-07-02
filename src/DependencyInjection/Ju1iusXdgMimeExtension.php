@@ -68,8 +68,8 @@ final class Ju1iusXdgMimeExtension extends Extension
     {
         $r = new \ReflectionClass(XdgMimeDatabase::class);
         $path = \dirname($r->getFileName());
-        $mimeInfo = $path . '/Resources/freedesktop.org.xml';
-        $container->addResource(new FileResource($mimeInfo));
+        $mimeInfo = $path . '/Resources/mime-info';
+        $container->addResource(new GlobResource($mimeInfo, '*.xml', false));
         $container->getDefinition('ju1ius_xdg_mime.cache_warmer')->setArgument(
             '$generator',
             (new Definition(MimeDatabaseGenerator::class))
