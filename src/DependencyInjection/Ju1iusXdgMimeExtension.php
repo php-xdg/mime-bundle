@@ -28,7 +28,7 @@ final class Ju1iusXdgMimeExtension extends Extension
 
     public function getXsdValidationBasePath(): string
     {
-        return __DIR__.'/../Resources/schema';
+        return \dirname(__DIR__).'/Resources/schema';
     }
 
     public function load(array $configs, ContainerBuilder $container)
@@ -47,7 +47,7 @@ final class Ju1iusXdgMimeExtension extends Extension
         if ($customDatabase['enabled'] ?? false) {
             $this->processCustomDatabase($container, $customDatabase);
         } else {
-            $this->registerDefaultResources($container);
+            $this->processDefaultDatabase($container);
         }
     }
 
@@ -64,13 +64,19 @@ final class Ju1iusXdgMimeExtension extends Extension
         );
     }
 
-    private function registerDefaultResources(ContainerBuilder $container): void
+    private function processDefaultDatabase(ContainerBuilder $container): void
     {
         $r = new \ReflectionClass(XdgMimeDatabase::class);
         $path = \dirname($r->getFileName());
-        foreach (glob("{$path}/Resources/db/*.php") as $file) {
-            $container->addResource(new FileResource($file));
-        }
+        $mimeInfo = $path . '/Resources/freedesktop.org.xml';
+        $container->addResource(new FileResource($mimeInfo));
+        $container->getDefinition('ju1ius_xdg_mime.cache_warmer')->setArgument(
+            '$generator',
+            (new Definition(MimeDatabaseGenerator::class))
+                ->addMethodCall('enablePlatformDependentOptimizations')
+                ->addMethodCall('useXdgDirectories', [false])
+                ->addMethodCall('addCustomPaths', [$mimeInfo]),
+        );
     }
 
     private function registerMimeInfoResources(ContainerBuilder $container, bool $useXdgDirs, array $paths): void
