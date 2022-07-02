@@ -18,7 +18,7 @@ final class Ju1iusXdgMimeBundleTest extends TestCase
     public function testGetPath(): void
     {
         $bundle = new Ju1iusXdgMimeBundle();
-        Assert::assertSame(dirname(__DIR__, 2), $bundle->getPath());
+        Assert::assertSame(\dirname(__DIR__, 2), $bundle->getPath());
     }
 
     public function testGetNamespace(): void

@@ -33,7 +33,7 @@ final class Configuration implements ConfigurationInterface
                         ->end()
                     ->end()
                     ->validate()
-                        ->ifTrue(fn($v) => $v['enabled'] && !$v['use_xdg_directories'] && !$v['paths'])
+                        ->ifTrue(fn ($v) => $v['enabled'] && !$v['use_xdg_directories'] && !$v['paths'])
                         ->thenInvalid('You must provide custom paths when not using standard XDG directories.')
                     ->end()
                 ->end()

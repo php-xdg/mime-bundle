@@ -30,8 +30,8 @@ final class ExtensionConfigurationTest extends AbstractExtensionConfigurationTes
                 'paths' => [],
             ],
         ];
-        $this->assertProcessedConfigurationEquals($expected, [__DIR__ . '/fixtures/default.xml']);
-        $this->assertProcessedConfigurationEquals($expected, [__DIR__ . '/fixtures/default.yml']);
+        $this->assertProcessedConfigurationEquals($expected, [__DIR__.'/fixtures/default.xml']);
+        $this->assertProcessedConfigurationEquals($expected, [__DIR__.'/fixtures/default.yml']);
     }
 
     public function testDefaultCustom(): void
@@ -44,8 +44,8 @@ final class ExtensionConfigurationTest extends AbstractExtensionConfigurationTes
                 'paths' => [],
             ],
         ];
-        $this->assertProcessedConfigurationEquals($expected, [__DIR__ . '/fixtures/custom_default.xml']);
-        $this->assertProcessedConfigurationEquals($expected, [__DIR__ . '/fixtures/custom_default.yml']);
+        $this->assertProcessedConfigurationEquals($expected, [__DIR__.'/fixtures/custom_default.xml']);
+        $this->assertProcessedConfigurationEquals($expected, [__DIR__.'/fixtures/custom_default.yml']);
     }
 
     public function testCustomPaths(): void
@@ -58,7 +58,7 @@ final class ExtensionConfigurationTest extends AbstractExtensionConfigurationTes
                 'paths' => ['foo', 'bar'],
             ],
         ];
-        $this->assertProcessedConfigurationEquals($expected, [__DIR__ . '/fixtures/custom_paths.xml']);
-        $this->assertProcessedConfigurationEquals($expected, [__DIR__ . '/fixtures/custom_paths.yml']);
+        $this->assertProcessedConfigurationEquals($expected, [__DIR__.'/fixtures/custom_paths.xml']);
+        $this->assertProcessedConfigurationEquals($expected, [__DIR__.'/fixtures/custom_paths.yml']);
     }
 }

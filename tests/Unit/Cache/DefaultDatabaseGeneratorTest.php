@@ -9,7 +9,7 @@ use Symfony\Component\Filesystem\Filesystem;
 
 final class DefaultDatabaseGeneratorTest extends TestCase
 {
-    private const OUTPUT_DIRECTORY = __DIR__ . '/../tmp/db';
+    private const OUTPUT_DIRECTORY = __DIR__.'/../tmp/db';
 
     protected function setUp(): void
     {
@@ -20,7 +20,6 @@ final class DefaultDatabaseGeneratorTest extends TestCase
     {
         $this->cleanupOutputDirectory();
     }
-
 
     public function testGenerate(): void
     {

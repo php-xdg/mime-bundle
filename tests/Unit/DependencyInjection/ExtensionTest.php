@@ -34,7 +34,6 @@ final class ExtensionTest extends AbstractExtensionTestCase
         $this->assertDatabaseIsDefined();
         $this->assertMimeTypeGuesserIsDefined();
         $this->assertCacheWarmerIsDefined();
-
     }
 
     public function testCustomDatabase(): void

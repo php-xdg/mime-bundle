@@ -8,13 +8,13 @@ use ju1ius\XdgMimeBundle\Cache\DefaultDatabaseGenerator;
 use ju1ius\XdgMimeBundle\Cache\XdgMimeDatabaseCacheWarmer;
 use ju1ius\XdgMimeBundle\Mime\XdgMimeTypeGuesser;
 
-return static function(ContainerConfigurator $container) {
+return static function (ContainerConfigurator $container) {
     $services = $container->services();
 
     $services
         ->set('ju1ius_xdg_mime.database', XdgMimeDatabase::class)
         ->args([
-            param('%kernel.cache_dir%') . '/xdg-mime',
+            param('%kernel.cache_dir%').'/xdg-mime',
         ])
         ->alias(MimeDatabaseInterface::class, 'ju1ius_xdg_mime.database')
     ;

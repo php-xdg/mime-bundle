@@ -16,11 +16,11 @@ final class TestKernel extends BaseKernel
 
     public function getCacheDir(): string
     {
-        return __DIR__ . '/tmp/' . $this->testCachePrefix;
+        return __DIR__.'/tmp/'.$this->testCachePrefix;
     }
 
     public function getLogDir(): string
     {
-        return __DIR__ . '/tmp/log';
+        return __DIR__.'/tmp/log';
     }
 }

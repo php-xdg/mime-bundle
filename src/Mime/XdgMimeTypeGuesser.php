@@ -19,6 +19,6 @@ final class XdgMimeTypeGuesser implements MimeTypeGuesserInterface
 
     public function guessMimeType(string $path): ?string
     {
-        return (string)$this->mimeDatabase->guessType($path);
+        return (string) $this->mimeDatabase->guessType($path);
     }
 }

@@ -28,12 +28,12 @@ final class Ju1iusXdgMimeExtension extends Extension
 
     public function getXsdValidationBasePath(): string
     {
-        return __DIR__ . '/../Resources/schema';
+        return __DIR__.'/../Resources/schema';
     }
 
     public function load(array $configs, ContainerBuilder $container)
     {
-        $loader = new PhpFileLoader($container, new FileLocator(__DIR__ . '/../../config'));
+        $loader = new PhpFileLoader($container, new FileLocator(__DIR__.'/../../config'));
         $loader->load('services.php');
 
         $config = $this->processConfiguration(new Configuration(), $configs);
@@ -77,7 +77,7 @@ final class Ju1iusXdgMimeExtension extends Extension
     {
         if ($useXdgDirs) {
             $dataDirs = array_map(
-                fn(string $dir) => $dir . '/mime/packages',
+                fn (string $dir) => $dir.'/mime/packages',
                 iterator_to_array(XdgDataDirIterator::fromGlobals(), false),
             );
             $paths = [...$dataDirs, ...$paths];
