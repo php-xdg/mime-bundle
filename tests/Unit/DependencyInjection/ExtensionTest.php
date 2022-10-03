@@ -1,29 +1,29 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\XdgMimeBundle\Tests\Unit\DependencyInjection;
+namespace Xdg\MimeBundle\Tests\Unit\DependencyInjection;
 
-use ju1ius\XdgMime\MimeDatabaseInterface;
-use ju1ius\XdgMime\XdgMimeDatabase;
-use ju1ius\XdgMimeBundle\Cache\XdgMimeDatabaseCacheWarmer;
-use ju1ius\XdgMimeBundle\DependencyInjection\Configuration;
-use ju1ius\XdgMimeBundle\DependencyInjection\Ju1iusXdgMimeExtension;
-use ju1ius\XdgMimeBundle\Mime\XdgMimeTypeGuesser;
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
 use PHPUnit\Framework\Assert;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Xdg\Mime\MimeDatabaseInterface;
+use Xdg\Mime\XdgMimeDatabase;
+use Xdg\MimeBundle\Cache\XdgMimeDatabaseCacheWarmer;
+use Xdg\MimeBundle\DependencyInjection\Configuration;
+use Xdg\MimeBundle\DependencyInjection\XdgMimeExtension;
+use Xdg\MimeBundle\Mime\XdgMimeTypeGuesser;
 
 final class ExtensionTest extends AbstractExtensionTestCase
 {
     protected function getContainerExtensions(): array
     {
         return [
-            new Ju1iusXdgMimeExtension(),
+            new XdgMimeExtension(),
         ];
     }
 
     public function testGetConfiguration(): void
     {
-        $extension = new Ju1iusXdgMimeExtension();
+        $extension = new XdgMimeExtension();
         $builder = $this->createStub(ContainerBuilder::class);
         Assert::assertInstanceOf(Configuration::class, $extension->getConfiguration([], $builder));
     }
@@ -64,7 +64,7 @@ final class ExtensionTest extends AbstractExtensionTestCase
 
     private function assertDatabaseIsDefined(array $arguments = []): void
     {
-        $id = 'ju1ius_xdg_mime.database';
+        $id = 'xdg_mime.database';
         $this->assertContainerBuilderHasService($id, XdgMimeDatabase::class);
         $this->assertContainerBuilderHasAlias(MimeDatabaseInterface::class, $id);
         foreach ($arguments as $index => $value) {
@@ -74,14 +74,14 @@ final class ExtensionTest extends AbstractExtensionTestCase
 
     private function assertMimeTypeGuesserIsDefined(): void
     {
-        $id = 'ju1ius_xdg_mime.guesser';
+        $id = 'xdg_mime.guesser';
         $this->assertContainerBuilderHasService($id, XdgMimeTypeGuesser::class);
         $this->assertContainerBuilderHasServiceDefinitionWithTag($id, 'mime.mime_type_guesser');
     }
 
     private function assertCacheWarmerIsDefined(array $arguments = []): void
     {
-        $id = 'ju1ius_xdg_mime.cache_warmer';
+        $id = 'xdg_mime.cache_warmer';
         $this->assertContainerBuilderHasService($id, XdgMimeDatabaseCacheWarmer::class);
         $this->assertContainerBuilderHasServiceDefinitionWithTag($id, 'kernel.cache_warmer');
         foreach ($arguments as $index => $value) {

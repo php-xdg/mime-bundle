@@ -1,20 +1,20 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\XdgMimeBundle;
+namespace Xdg\MimeBundle;
 
-use ju1ius\XdgMimeBundle\DependencyInjection\Ju1iusXdgMimeExtension;
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\BundleInterface;
+use Xdg\MimeBundle\DependencyInjection\XdgMimeExtension;
 
-final class Ju1iusXdgMimeBundle implements BundleInterface
+final class XdgMimeBundle implements BundleInterface
 {
     use ContainerAwareTrait;
 
     public function getName(): string
     {
-        return 'Ju1iusXdgMime';
+        return 'XdgMime';
     }
 
     public function getPath(): string
@@ -29,7 +29,7 @@ final class Ju1iusXdgMimeBundle implements BundleInterface
 
     public function getContainerExtension(): ?ExtensionInterface
     {
-        return new Ju1iusXdgMimeExtension();
+        return new XdgMimeExtension();
     }
 
     public function boot()

@@ -1,10 +1,10 @@
 <container
   xmlns="http://symfony.com/schema/dic/services"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:j="urn:ju1ius:xdg-mime-bundle:dic"
+  xmlns:j="urn:xdg:mime-bundle:dic"
   xsi:schemaLocation="
     http://symfony.com/schema/dic/services https://symfony.com/schema/dic/services/services-1.0.xsd
-    urn:ju1ius:xdg-mime-bundle:dic urn:ju1ius:xdg-mime-bundle:dic:config.xsd
+    urn:xdg:mime-bundle:dic urn:xdg:mime-bundle:dic:config.xsd
   "
 >
   <j:config/>

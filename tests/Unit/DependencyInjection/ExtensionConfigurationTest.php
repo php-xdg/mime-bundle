@@ -1,18 +1,18 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\XdgMimeBundle\Tests\Unit\DependencyInjection;
+namespace Xdg\MimeBundle\Tests\Unit\DependencyInjection;
 
-use ju1ius\XdgMimeBundle\DependencyInjection\Configuration;
-use ju1ius\XdgMimeBundle\DependencyInjection\Ju1iusXdgMimeExtension;
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionConfigurationTestCase;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
+use Xdg\MimeBundle\DependencyInjection\Configuration;
+use Xdg\MimeBundle\DependencyInjection\XdgMimeExtension;
 
 final class ExtensionConfigurationTest extends AbstractExtensionConfigurationTestCase
 {
     protected function getContainerExtension(): ExtensionInterface
     {
-        return new Ju1iusXdgMimeExtension();
+        return new XdgMimeExtension();
     }
 
     protected function getConfiguration(): ConfigurationInterface

@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\XdgMimeBundle\Mime;
+namespace Xdg\MimeBundle\Mime;
 
-use ju1ius\XdgMime\MimeDatabaseInterface;
 use Symfony\Component\Mime\MimeTypeGuesserInterface;
+use Xdg\Mime\MimeDatabaseInterface;
 
 final class XdgMimeTypeGuesser implements MimeTypeGuesserInterface
 {

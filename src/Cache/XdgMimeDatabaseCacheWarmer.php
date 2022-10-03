@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\XdgMimeBundle\Cache;
+namespace Xdg\MimeBundle\Cache;
 
-use ju1ius\XdgMime\MimeDatabaseGeneratorInterface;
-use ju1ius\XdgMime\XdgMimeDatabase;
 use Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerInterface;
+use Xdg\Mime\MimeDatabaseGeneratorInterface;
+use Xdg\Mime\XdgMimeDatabase;
 
 final class XdgMimeDatabaseCacheWarmer implements CacheWarmerInterface
 {

@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\XdgMimeBundle\Tests\Unit\DependencyInjection;
+namespace Xdg\MimeBundle\Tests\Unit\DependencyInjection;
 
-use ju1ius\XdgMimeBundle\DependencyInjection\Configuration;
 use Matthias\SymfonyConfigTest\PhpUnit\ConfigurationTestCaseTrait;
 use PHPUnit\Framework\TestCase;
+use Xdg\MimeBundle\DependencyInjection\Configuration;
 
 final class ConfigurationTest extends TestCase
 {
@@ -18,7 +18,7 @@ final class ConfigurationTest extends TestCase
     public function testCustomPathsAreRequiredWhenNotUsingXdgDirectories(): void
     {
         $config = [
-            'ju1ius_xdg_mime' => [
+            'xdg_mime' => [
                 'custom_database' => [
                     'use_xdg_directories' => false,
                 ],

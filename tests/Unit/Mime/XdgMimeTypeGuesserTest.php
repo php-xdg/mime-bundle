@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\XdgMimeBundle\Tests\Unit\Mime;
+namespace Xdg\MimeBundle\Tests\Unit\Mime;
 
-use ju1ius\XdgMime\MimeDatabaseInterface;
-use ju1ius\XdgMime\MimeType;
-use ju1ius\XdgMimeBundle\Mime\XdgMimeTypeGuesser;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
+use Xdg\Mime\MimeDatabaseInterface;
+use Xdg\Mime\MimeType;
+use Xdg\MimeBundle\Mime\XdgMimeTypeGuesser;
 
 final class XdgMimeTypeGuesserTest extends TestCase
 {

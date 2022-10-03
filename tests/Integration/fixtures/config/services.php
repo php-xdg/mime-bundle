@@ -2,8 +2,8 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-use ju1ius\XdgMime\MimeDatabaseInterface;
-use ju1ius\XdgMimeBundle\Tests\Integration\TestService;
+use Xdg\Mime\MimeDatabaseInterface;
+use Xdg\MimeBundle\Tests\Integration\TestService;
 
 return static function (ContainerConfigurator $container) {
     $container->services()

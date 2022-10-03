@@ -1,10 +1,7 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\XdgMimeBundle\DependencyInjection;
+namespace Xdg\MimeBundle\DependencyInjection;
 
-use ju1ius\XdgMime\MimeDatabaseGenerator;
-use ju1ius\XdgMime\Utils\XdgDataDirIterator;
-use ju1ius\XdgMime\XdgMimeDatabase;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Resource\FileExistenceResource;
 use Symfony\Component\Config\Resource\FileResource;
@@ -13,8 +10,11 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
+use Xdg\Mime\MimeDatabaseGenerator;
+use Xdg\Mime\Utils\XdgDataDirIterator;
+use Xdg\Mime\XdgMimeDatabase;
 
-final class Ju1iusXdgMimeExtension extends Extension
+final class XdgMimeExtension extends Extension
 {
     public function getConfiguration(array $config, ContainerBuilder $container): Configuration
     {
@@ -23,7 +23,7 @@ final class Ju1iusXdgMimeExtension extends Extension
 
     public function getNamespace(): string
     {
-        return 'urn:ju1ius:xdg-mime-bundle:dic';
+        return 'urn:xdg:mime-bundle:dic';
     }
 
     public function getXsdValidationBasePath(): string
@@ -39,10 +39,10 @@ final class Ju1iusXdgMimeExtension extends Extension
         $config = $this->processConfiguration(new Configuration(), $configs);
         ['cache_prefix' => $cachePrefix, 'custom_database' => $customDatabase] = $config;
 
-        $container->getDefinition('ju1ius_xdg_mime.database')->setArguments([
+        $container->getDefinition('xdg_mime.database')->setArguments([
             sprintf('%s/%s', '%kernel.cache_dir%', $cachePrefix),
         ]);
-        $container->getDefinition('ju1ius_xdg_mime.cache_warmer')->setArgument('$cachePrefix', $cachePrefix);
+        $container->getDefinition('xdg_mime.cache_warmer')->setArgument('$cachePrefix', $cachePrefix);
 
         if ($customDatabase['enabled'] ?? false) {
             $this->processCustomDatabase($container, $customDatabase);
@@ -55,7 +55,7 @@ final class Ju1iusXdgMimeExtension extends Extension
     {
         ['use_xdg_directories' => $useXdgDirs, 'paths' => $paths] = $config;
         $this->registerMimeInfoResources($container, $useXdgDirs, $paths);
-        $container->getDefinition('ju1ius_xdg_mime.cache_warmer')->setArgument(
+        $container->getDefinition('xdg_mime.cache_warmer')->setArgument(
             '$generator',
             (new Definition(MimeDatabaseGenerator::class))
                 ->addMethodCall('enablePlatformDependentOptimizations')
@@ -70,7 +70,7 @@ final class Ju1iusXdgMimeExtension extends Extension
         $path = \dirname($r->getFileName());
         $mimeInfo = $path . '/Resources/mime-info';
         $container->addResource(new GlobResource($mimeInfo, '*.xml', false));
-        $container->getDefinition('ju1ius_xdg_mime.cache_warmer')->setArgument(
+        $container->getDefinition('xdg_mime.cache_warmer')->setArgument(
             '$generator',
             (new Definition(MimeDatabaseGenerator::class))
                 ->addMethodCall('enablePlatformDependentOptimizations')

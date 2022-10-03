@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\XdgMimeBundle\Tests\Integration;
+namespace Xdg\MimeBundle\Tests\Integration;
 
-use ju1ius\XdgMime\MimeDatabaseInterface;
+use Xdg\Mime\MimeDatabaseInterface;
 
 final class TestService
 {

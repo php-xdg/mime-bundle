@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\XdgMimeBundle\Tests\Integration;
+namespace Xdg\MimeBundle\Tests\Integration;
 
-use ju1ius\XdgMime\XdgMimeDatabase;
-use ju1ius\XdgMimeBundle\Ju1iusXdgMimeBundle;
 use PHPUnit\Framework\Assert;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpKernel\KernelInterface;
+use Xdg\Mime\XdgMimeDatabase;
+use Xdg\MimeBundle\XdgMimeBundle;
 
 final class BundleInitializationTest extends KernelTestCase
 {
@@ -20,7 +20,7 @@ final class BundleInitializationTest extends KernelTestCase
         /** @var TestKernel $kernel */
         $kernel = parent::createKernel($options);
         $kernel->setTestProjectDir(__DIR__);
-        $kernel->addTestBundle(Ju1iusXdgMimeBundle::class);
+        $kernel->addTestBundle(XdgMimeBundle::class);
         $kernel->addTestConfig(__DIR__.'/fixtures/config/services.php');
         $kernel->handleOptions($options);
         //$kernel->setClearCacheAfterShutdown(false);

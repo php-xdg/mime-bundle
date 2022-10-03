@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\XdgMimeBundle\Tests\Unit\Cache;
+namespace Xdg\MimeBundle\Tests\Unit\Cache;
 
-use ju1ius\XdgMime\MimeDatabaseGeneratorInterface;
-use ju1ius\XdgMime\XdgMimeDatabase;
-use ju1ius\XdgMimeBundle\Cache\XdgMimeDatabaseCacheWarmer;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
+use Xdg\Mime\MimeDatabaseGeneratorInterface;
+use Xdg\Mime\XdgMimeDatabase;
+use Xdg\MimeBundle\Cache\XdgMimeDatabaseCacheWarmer;
 
 final class XdgMimeDatabaseCacheWarmerTest extends TestCase
 {

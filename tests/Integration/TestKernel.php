@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\XdgMimeBundle\Tests\Integration;
+namespace Xdg\MimeBundle\Tests\Integration;
 
 use Nyholm\BundleTest\TestKernel as BaseKernel;
 

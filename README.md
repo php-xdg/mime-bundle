@@ -37,7 +37,7 @@ in the `config/bundles.php` file of your project:
 
 return [
     // ...
-    ju1ius\XdgMimeBundle\Ju1iusXdgMimeBundle::class => ['all' => true],
+    Xdg\MimeBundle\XdgMimeBundle::class => ['all' => true],
 ];
 ```
 

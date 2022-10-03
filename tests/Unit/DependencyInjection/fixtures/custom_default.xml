@@ -1,6 +1,6 @@
 <container
   xmlns="http://symfony.com/schema/dic/services"
-  xmlns:j="urn:ju1ius:xdg-mime-bundle:dic"
+  xmlns:j="urn:xdg:mime-bundle:dic"
 >
   <j:config>
     <j:custom-database/>

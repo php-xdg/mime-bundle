@@ -2,24 +2,24 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-use ju1ius\XdgMime\MimeDatabaseInterface;
-use ju1ius\XdgMime\XdgMimeDatabase;
-use ju1ius\XdgMimeBundle\Cache\XdgMimeDatabaseCacheWarmer;
-use ju1ius\XdgMimeBundle\Mime\XdgMimeTypeGuesser;
+use Xdg\Mime\MimeDatabaseInterface;
+use Xdg\Mime\XdgMimeDatabase;
+use Xdg\MimeBundle\Cache\XdgMimeDatabaseCacheWarmer;
+use Xdg\MimeBundle\Mime\XdgMimeTypeGuesser;
 
 return static function (ContainerConfigurator $container) {
     $services = $container->services();
 
     $services
-        ->set('ju1ius_xdg_mime.database', XdgMimeDatabase::class)
+        ->set('xdg_mime.database', XdgMimeDatabase::class)
         ->args([
             param('%kernel.cache_dir%').'/xdg-mime',
         ])
-        ->alias(MimeDatabaseInterface::class, 'ju1ius_xdg_mime.database')
+        ->alias(MimeDatabaseInterface::class, 'xdg_mime.database')
     ;
 
     $services
-        ->set('ju1ius_xdg_mime.cache_warmer', XdgMimeDatabaseCacheWarmer::class)
+        ->set('xdg_mime.cache_warmer', XdgMimeDatabaseCacheWarmer::class)
         ->args([
             abstract_arg('Database generator.'),
             'xdg-mime',
@@ -28,9 +28,9 @@ return static function (ContainerConfigurator $container) {
     ;
 
     $services
-        ->set('ju1ius_xdg_mime.guesser', XdgMimeTypeGuesser::class)
+        ->set('xdg_mime.guesser', XdgMimeTypeGuesser::class)
         ->args([
-            service('ju1ius_xdg_mime.database'),
+            service('xdg_mime.database'),
         ])
         ->tag('mime.mime_type_guesser')
     ;

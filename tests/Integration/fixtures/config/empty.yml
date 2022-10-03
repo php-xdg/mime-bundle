@@ -1,4 +1,4 @@
-ju1ius_xdg_mime:
+xdg_mime:
   custom_database:
     use_xdg_directories: false
     paths:

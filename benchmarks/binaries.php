@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
 use ju1ius\XdgMime\XdgMimeDatabase;
-use ju1ius\XdgMimeBundle\Mime\XdgMimeTypeGuesser;
 use Symfony\Component\Mime\FileinfoMimeTypeGuesser;
 use Symfony\Component\Mime\MimeTypes;
 use Symfony\Component\Stopwatch\Stopwatch;
+use Xdg\MimeBundle\Mime\XdgMimeTypeGuesser;
 
 require __DIR__ . '/../vendor/autoload.php';
 
