@@ -1,6 +1,6 @@
 # ju1ius/xdg-mime-bundle
 
-Symfony integration for the [ju1ius/xdg-mime](https://github.com/ju1ius/xdg-mime) library.
+Symfony integration for the [ju1ius/xdg-mime](https://github.com/php-xdg/mime) library.
 
 ## Installation
 
@@ -13,7 +13,7 @@ of the Composer documentation.
 Open a command console, enter your project directory and execute:
 
 ```console
-$ composer require ju1ius/xdg-mime-bundle
+$ composer require xdg/mime-bundle
 ```
 
 ### Applications that don't use Symfony Flex
@@ -24,7 +24,7 @@ Open a command console, enter your project directory and execute the
 following command to download the latest stable version of this bundle:
 
 ```console
-$ composer require ju1ius/xdg-mime-bundle
+$ composer require xdg/mime-bundle
 ```
 
 #### Step 2: Enable the Bundle
@@ -34,7 +34,6 @@ in the `config/bundles.php` file of your project:
 
 ```php
 // config/bundles.php
-
 return [
     // ...
     Xdg\MimeBundle\XdgMimeBundle::class => ['all' => true],
