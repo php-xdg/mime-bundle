@@ -1,4 +1,6 @@
-# ju1ius/xdg-mime-bundle
+# xdg/mime-bundle
+
+[![codecov](https://codecov.io/gh/php-xdg/mime-bundle/branch/main/graph/badge.svg?token=5YUK7ZFMYJ)](https://codecov.io/gh/php-xdg/mime-bundle)
 
 Symfony integration for the [xdg/mime](https://github.com/php-xdg/mime) library.
 
