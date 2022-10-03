@@ -1,6 +1,6 @@
 # ju1ius/xdg-mime-bundle
 
-Symfony integration for the [ju1ius/xdg-mime](https://github.com/php-xdg/mime) library.
+Symfony integration for the [xdg/mime](https://github.com/php-xdg/mime) library.
 
 ## Installation
 

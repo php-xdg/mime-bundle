@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-use ju1ius\XdgMime\XdgMimeDatabase;
+use Xdg\Mime\XdgMimeDatabase;
 use Symfony\Component\Mime\FileinfoMimeTypeGuesser;
 use Symfony\Component\Mime\MimeTypes;
 use Symfony\Component\Stopwatch\Stopwatch;
