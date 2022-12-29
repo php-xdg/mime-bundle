@@ -10,6 +10,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
+use Xdg\BaseDirectory\XdgBaseDirectory;
 use Xdg\Mime\MimeDatabaseGenerator;
 use Xdg\Mime\Utils\XdgDataDirIterator;
 use Xdg\Mime\XdgMimeDatabase;
@@ -82,10 +83,7 @@ final class XdgMimeExtension extends Extension
     private function registerMimeInfoResources(ContainerBuilder $container, bool $useXdgDirs, array $paths): void
     {
         if ($useXdgDirs) {
-            $dataDirs = array_map(
-                fn (string $dir) => $dir.'/mime/packages',
-                iterator_to_array(XdgDataDirIterator::fromGlobals(), false),
-            );
+            $dataDirs = XdgBaseDirectory::fromEnvironment()->collectDataPaths('mime/packages');
             $paths = [...$dataDirs, ...$paths];
         }
 
