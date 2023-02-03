@@ -32,8 +32,8 @@
     "symfony/dependency-injection": "^6.1",
     "symfony/filesystem": "^6.1",
     "symfony/http-kernel": "^6.1",
-    "xdg/base-directory": "^0.3",
-    "xdg/mime": "^0.5"
+    "xdg/base-directory": "^1.0",
+    "xdg/mime": "^1.0"
   },
   "require-dev": {
     "matthiasnoback/symfony-config-test": "^4.3",
